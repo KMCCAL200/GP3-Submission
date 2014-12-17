@@ -1,10 +1,10 @@
-﻿Build started 13/12/14 01:15:41 PM.
+﻿Build started 17/12/14 04:26:52 PM.
      1>Project "C:\Users\kerri\Desktop\Games\Lab 9\Lab 9\Lab 9.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I"C:\Users\kerri\Desktop\Games\Lab 9\Lab 9\Vamp" /I"C:\Users\kerri\Desktop\Games\Lab 9\Lab 9\Soil" /I"C:\Users\kerri\Desktop\Games\Lab 9\Lab 9\FreeImage\Source" /I"C:\Users\kerri\Desktop\New folder (3)\Lab 9\Lab 9\glm" /I"C:\Users\kerri\Desktop\New folder (3)\Lab 9\Lab 9\OpenAL" /I"C:\Users\kerri\Desktop\New folder (3)\Lab 9\Lab 9\libdrawtext-0.2.1" /I"C:\Users\kerri\Desktop\New folder (3)\Lab 9\Lab 9\glm-0.3.2" /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt main.cpp
          main.cpp
        Link:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\kerri\Desktop\Games\Lab 9\Debug\Lab 9.exe" /INCREMENTAL /NOLOGO opengl32.lib glu32.lib glut32.lib glew32.lib glew32s.lib FreeImage.lib freetype.lib "glm-0.3.2lib.lib" libdrawtext.lib alut.lib OpenAL32.lib SOIL.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\kerri\Desktop\Games\Lab 9\Debug\Lab 9.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\kerri\Desktop\Games\Lab 9\Debug\Lab 9.lib" /MACHINE:X86 Debug\cCamera.obj
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\kerri\Desktop\Games\Lab 9\Debug\Lab 9.exe" /INCREMENTAL /NOLOGO opengl32.lib glu32.lib glut32.lib glew32.lib glew32s.lib FreeImage.lib freetype.lib "glm-0.3.2lib.lib" libdrawtext.lib alut.lib OpenAL32.lib Xinput9_1_0.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\kerri\Desktop\Games\Lab 9\Debug\Lab 9.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\kerri\Desktop\Games\Lab 9\Debug\Lab 9.lib" /MACHINE:X86 Debug\cCamera.obj
          Debug\cEnemy.obj
          Debug\cImageLoader.obj
          Debug\cBullet.obj
@@ -13,6 +13,7 @@
          Debug\cPlayer.obj
          Debug\cSound.obj
          Debug\cWNDManager.obj
+         Debug\CXBOXController.obj
          Debug\GameConstants.obj
          Debug\main.obj
          Debug\windowOGL.obj
@@ -21,4 +22,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:01.17
+Time Elapsed 00:00:01.35

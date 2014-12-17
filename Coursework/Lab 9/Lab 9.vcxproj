@@ -48,7 +48,7 @@
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>opengl32.lib;glu32.lib;glut32.lib;glew32.lib;glew32s.lib;FreeImage.lib;freetype.lib;glm-0.3.2lib.lib;libdrawtext.lib;alut.lib;OpenAL32.lib;SOIL.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>opengl32.lib;glu32.lib;glut32.lib;glew32.lib;glew32s.lib;FreeImage.lib;freetype.lib;glm-0.3.2lib.lib;libdrawtext.lib;alut.lib;OpenAL32.lib;Xinput9_1_0.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -75,6 +75,7 @@
     <ClCompile Include="cPlayer.cpp" />
     <ClCompile Include="cSound.cpp" />
     <ClCompile Include="cWNDManager.cpp" />
+    <ClCompile Include="CXBOXController.cpp" />
     <ClCompile Include="GameConstants.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="windowOGL.cpp" />
@@ -89,9 +90,13 @@
     <ClInclude Include="cPlayer.h" />
     <ClInclude Include="cSound.h" />
     <ClInclude Include="cWNDManager.h" />
+    <ClInclude Include="CXBOXController.h" />
     <ClInclude Include="GameConstants.h" />
     <ClInclude Include="wglext.h" />
     <ClInclude Include="windowOGL.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram.cd" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

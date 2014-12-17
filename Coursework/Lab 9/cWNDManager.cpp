@@ -231,32 +231,7 @@ LRESULT CALLBACK cWNDManager::WndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARA
 		if (wParam == VK_ESCAPE) //If the escape key was pressed close window
 		{
 			DestroyWindow(pInstance->m_hwnd); //Send a WM_DESTROY message
-		}
-
-		if (wParam == 't' || wParam == 'T')  //If d or D was pressed change draw mode
-		{
-			drawMode = ++drawMode % 3;
-			if (drawMode == 0)        // fill mode
-			{
-				glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
-				glEnable(GL_DEPTH_TEST);
-				glEnable(GL_CULL_FACE);
-			}
-			else if (drawMode == 1)  // wireframe mode
-			{
-				glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
-				glDisable(GL_DEPTH_TEST);
-				glDisable(GL_CULL_FACE);
-			}
-			else                    // point mode
-			{
-				glPolygonMode(GL_FRONT_AND_BACK, GL_POINT);
-				glDisable(GL_DEPTH_TEST);
-				glDisable(GL_CULL_FACE);
-			}
-			break;
-		}
-		
+		}		
 
 		if (wParam == VK_LEFT) //If the left arrow key is pressed
 		{

@@ -1,0 +1,102 @@
+# Blender MTL File: 'M4.blend'
+# Material Count: 10
+
+newmtl Material
+Ns 96.078431
+Ka 0.000000 0.000000 0.000000
+Kd 0.415825 0.651232 0.314042
+Ks 0.500000 0.500000 0.500000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd C:\Users\MASTER IPHONE\Desktop\a;\game texture\dust camo.jpg
+
+newmtl Material.001
+Ns 96.078431
+Ka 0.000000 0.000000 0.000000
+Kd 0.275456 0.291095 0.640000
+Ks 0.500000 0.500000 0.500000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd C:\Users\MASTER IPHONE\Desktop\a;\game texture\dust camo.jpg
+
+newmtl Material.001_Digital-Camo.jpg
+Ns 96.078431
+Ka 0.000000 0.000000 0.000000
+Kd 0.275456 0.291095 0.640000
+Ks 0.500000 0.500000 0.500000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd C:\Users\MASTER IPHONE\Desktop\a;\game texture\Digital-Camo.jpg
+
+newmtl Material.002
+Ns 96.078431
+Ka 0.000000 0.000000 0.000000
+Kd 0.138054 0.344595 0.640000
+Ks 0.500000 0.500000 0.500000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd C:\Users\MASTER IPHONE\Desktop\a;\game texture\dust camo.jpg
+
+newmtl Material.004
+Ns 96.078431
+Ka 0.000000 0.000000 0.000000
+Kd 0.086187 0.120247 0.640000
+Ks 0.500000 0.500000 0.500000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd C:\Users\MASTER IPHONE\Desktop\a;\game texture\met;.jpg
+
+newmtl Material.005
+Ns 96.078431
+Ka 0.000000 0.000000 0.000000
+Kd 0.312938 0.599140 0.640000
+Ks 0.500000 0.500000 0.500000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd C:\Users\MASTER IPHONE\Desktop\a;\game texture\dust camo.jpg
+
+newmtl Material.006
+Ns 96.078431
+Ka 0.000000 0.000000 0.000000
+Kd 0.244095 0.200720 0.640000
+Ks 0.500000 0.500000 0.500000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd C:\Users\MASTER IPHONE\Desktop\a;\game texture\dust camo.jpg
+
+newmtl Material.008
+Ns 96.078431
+Ka 0.000000 0.000000 0.000000
+Kd 0.035564 0.035564 0.035564
+Ks 0.500000 0.500000 0.500000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd C:\Users\MASTER IPHONE\Desktop\a;\game texture\cem.jpg
+
+newmtl Material.010
+Ns 96.078431
+Ka 0.000000 0.000000 0.000000
+Kd 0.194956 0.640000 0.213286
+Ks 0.500000 0.500000 0.500000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd C:\Users\MASTER IPHONE\Desktop\a;\game texture\met;.jpg
+
+newmtl Material.011
+Ns 96.078431
+Ka 0.000000 0.000000 0.000000
+Kd 0.451325 0.230045 0.640000
+Ks 0.500000 0.500000 0.500000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd C:\Users\MASTER IPHONE\Desktop\a;\game texture\dust camo.jpg

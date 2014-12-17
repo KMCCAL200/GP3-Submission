@@ -51,6 +51,9 @@
     <ClCompile Include="cBullet.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="CXBOXController.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="cEnemy.h">
@@ -89,5 +92,11 @@
     <ClInclude Include="cBullet.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="CXBOXController.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram.cd" />
   </ItemGroup>
 </Project>

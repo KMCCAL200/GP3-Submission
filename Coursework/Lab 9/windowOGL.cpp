@@ -19,7 +19,7 @@ bool windowOGL::initOGL()
 	GLfloat lightpos[] = { .5, 1., 1., 0. };
 	glLightfv(GL_LIGHT0, GL_POSITION, lightpos);
 	onResize(1024, 768);
-	
+	glEnable(GL_COLOR_MATERIAL);
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
 	gluPerspective(45, 1, 1, 1000);
@@ -33,7 +33,6 @@ void windowOGL::renderOGL(float rotAngle)
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     glLoadIdentity();
 	glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
-
 }
 
 void windowOGL::shutdown()

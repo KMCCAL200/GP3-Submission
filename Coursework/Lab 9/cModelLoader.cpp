@@ -21,8 +21,10 @@ void cModelLoader::renderMdl(glm::vec3 mdlPosition, float mdlRotationAngle, glm:
 	glTranslatef(mdlPosition.x, 0.0f, -mdlPosition.z);
 	glRotatef(mdlRotationAngle, 0, 1, 0);
 	glScalef(mdlScale.x, mdlScale.y, mdlScale.z);
-	//DrW THE MODEL
+
+	//Draw the model
 	glmDraw(m_model, GLM_SMOOTH | GLM_TEXTURE | GLM_MATERIAL);
+	//glmDraw(m_model, GLM_SMOOTH | GLM_COLOR);
 	glPopMatrix();
 }
 

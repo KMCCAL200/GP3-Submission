@@ -22,8 +22,11 @@
 #include <vector>
 #include <time.h>
 #include <FreeImage.h>
+#include "CXBOXController.h"
 
 #define FONT_SZ	24
+
+
 
 int WINAPI WinMain(HINSTANCE hInstance,
                    HINSTANCE hPrevInstance,
@@ -54,6 +57,10 @@ int WINAPI WinMain(HINSTANCE hInstance,
     //Attach the game to the window
 	pgmWNDMgr->attachOGLWnd(&theOGLWnd);
 
+	//create x-box controller
+	CXBOXController* Player1;
+	//set player controller
+	Player1 = new CXBOXController(1);
 
     //Attempt to create the window
 	if (!pgmWNDMgr->createWND(windowWidth, windowHeight, windowBPP))
@@ -73,38 +80,40 @@ int WINAPI WinMain(HINSTANCE hInstance,
 
 	srand(time(NULL));
 
-	//create the enemy
+	//create the enemy 1
 	cModelLoader enemyMdl;
 
 	//Load the model for the enemies
-	enemyMdl.loadModel("Models/Handgun Model.obj"); //enemy
+	enemyMdl.loadModel("Models/gun.obj"); //enemy
 	
 	//create a list of 5 enemies
-	cEnemy enemyList[5];
+	cEnemy enemyList[2];
 
 	//set up the enemies position and size
-	for (int loop = 0; loop < 5; loop++)
+	for (int loop = 0; loop < 2; loop++)
 	{
 		enemyList[loop].randomise();
 		enemyList[loop].setMdlDimensions(enemyMdl.getModelDimensions());
 		enemyList[loop].setScale(glm::vec3(2, 2, 2));
 	}
 
-	img.LoadTexture("Models/textures/map_Kd Tardis.tga"); 
+	//create the enemy 2
+	cModelLoader enemyMdl2;
 
-	//create the emeny
-	cModelLoader playerMdl;
+	//Load the model for the enemies
+	enemyMdl2.loadModel("Models/TronGun.obj"); //enemy
 
-	//Load the model for the player
-	playerMdl.loadModel("Models/forlan_gun.obj"); // Player
+	//create a list of 5 enemies
+	cEnemy enemyList2[3];
 
-	//set up the players position and size
-	cPlayer thePlayer;
-	thePlayer.initialise(glm::vec3(0, 0, 0), 0.0f, glm::vec3(1, 1, 1), glm::vec3(0, 0, 0), 5.0f, true);
-	thePlayer.setMdlDimensions(playerMdl.getModelDimensions());
-	thePlayer.setScale(glm::vec3(20, 20, 20));
-	thePlayer.setRotation(270);
-		
+	//set up the enemies position and size
+	for (int loop = 0; loop < 3; loop++)
+	{
+		enemyList2[loop].randomise();
+		enemyList2[loop].setMdlDimensions(enemyMdl.getModelDimensions());
+		enemyList2[loop].setScale(glm::vec3(5, 5, 5));
+	}
+	
 	//create the bullet
 	cModelLoader theBullet;
 
@@ -114,6 +123,20 @@ int WINAPI WinMain(HINSTANCE hInstance,
 	//crete list to hold the bullets
 	std::vector<cBullet*> BulletList;
 	std::vector<cBullet*>::iterator index;
+
+	//create the player
+	cModelLoader playerMdl;
+
+	//Load the model for the player
+	playerMdl.loadModel("Models/M4.obj"); // Player
+
+	//set up the players position and size
+	cPlayer thePlayer;
+	thePlayer.initialise(glm::vec3(0, 0, 0), 0.0f, glm::vec3(1, 1, 1), glm::vec3(0, 0, 0), 5.0f, true);
+	thePlayer.setMdlDimensions(playerMdl.getModelDimensions());
+	thePlayer.setScale(glm::vec3(1, 1, 1));
+	thePlayer.setRotation(270);
+
 
 	// create the font
 	struct dtx_font *fntmain;
@@ -168,13 +191,23 @@ int WINAPI WinMain(HINSTANCE hInstance,
 		//Render the scene
 		//Drawing the model
 
-		//If the enemy has not been shot render it
-		for (int loop = 0; loop < 5; loop++)
+		//If the enemy1 has not been shot render it
+		for (int loop = 0; loop < 2; loop++)
 		{
 			if (enemyList[loop].isActive())
 			{
 			enemyMdl.renderMdl(enemyList[loop].getPosition(), enemyList[loop].getRotation(), enemyList[loop].getScale());
 			enemyList[loop].update();
+			}
+		}
+
+		//If the enemy2 has not been shot render it
+		for (int loop = 0; loop < 3; loop++)
+		{
+			if (enemyList2[loop].isActive())
+			{
+				enemyMdl2.renderMdl(enemyList[loop].getPosition(), enemyList[loop].getRotation(), enemyList[loop].getScale());
+				enemyList2[loop].update();
 			}
 		}
 
@@ -196,9 +229,9 @@ int WINAPI WinMain(HINSTANCE hInstance,
 			//set the position and direction the bullet will move in
 			bullet->setDirection(mdlBulletDirection);
 			bullet->setRotation(255.0f);
-			bullet->setScale(glm::vec3(2, 2, 2));
+			bullet->setScale(glm::vec3(0.7, 0.7, 0.7));
 			bullet->setSpeed(5.0f);
-			bullet->setPosition(thePlayer.getPosition() + mdlBulletDirection);
+			bullet->setPosition((thePlayer.getPosition() - glm::vec3(20, 0, 4.3)) + mdlBulletDirection);
 			bullet->setIsActive(true);
 			bullet->setMdlDimensions(theBullet.getModelDimensions());
 			bullet->update();
@@ -217,12 +250,12 @@ int WINAPI WinMain(HINSTANCE hInstance,
 				//render the bullet
 				theBullet.renderMdl((*index)->getPosition(), (*index)->getRotation(), (*index)->getScale());
 				(*index)->update();
-				for (int loop = 0; loop < 5; loop++)// check all enemies
+				for (int loop = 0; loop < 2; loop++)// check all enemies
 				{
 					enemyList[loop].update();
 					if (enemyList[loop].isActive())//if the enemy is dead dont need to check for a collision
 					{
-						//check for a collision
+						//check for a sphere-sphere collision
 						if ((*index)->SphereSphereCollision(enemyList[loop].getPosition(), enemyList[loop].getMdlRadius()))
 						{
 							//disable enemy
@@ -238,6 +271,50 @@ int WINAPI WinMain(HINSTANCE hInstance,
 						}
 					}
 				}
+
+				for (int loop = 0; loop < 3; loop++)// check all enemies
+				{
+					enemyList2[loop].update();
+					if (enemyList2[loop].isActive())//if the enemy is dead dont need to check for a collision
+					{
+						//check for a sphere-sphere collision
+						if ((*index)->SphereSphereCollision(enemyList2[loop].getPosition(), enemyList2[loop].getMdlRadius()))
+						{
+							//disable enemy
+							enemyList2[loop].setIsActive(false);
+							//disable bullet
+							(*index)->setIsActive(false);
+							//if sound is on play explosion sound
+							if (sound == true)
+								explosionFX.playAudio(AL_FALSE);
+							//add to player score
+							hits++;
+							break; // No need to check for other bullets.
+						}
+					}
+				}
+
+			}
+		}
+
+		//XBOX controls
+		//if contril is connected
+		if (Player1->IsConnected())
+		{
+			if (Player1->GetState().Gamepad.wButtons & XINPUT_GAMEPAD_DPAD_LEFT)//if player presses left on d-pad
+			{
+				//move player left
+				translationZ = -0.1f;
+			}
+			if (Player1->GetState().Gamepad.wButtons & XINPUT_GAMEPAD_DPAD_RIGHT) //if player presses right on d-pad
+			{
+				// move player right
+				translationZ = 0.1f;
+			}
+			if (Player1->GetState().Gamepad.wButtons & XINPUT_GAMEPAD_A) //if player presses A button
+			{
+				//fire gun
+				fire = true;
 			}
 		}
 
